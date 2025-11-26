@@ -9,8 +9,11 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Openlord AI",
-  description: "Open source AI Chatbot displaying the abilities of Vercel AI SDK.",
+  title: "TOMO AI",
+  description: "Advanced AI chatbot powered by multiple AI models with web search and code interpreter.",
+  icons: {
+    icon: "/cropped_circle_image (1).png",
+  },
 };
 
 export const viewport: Viewport = {

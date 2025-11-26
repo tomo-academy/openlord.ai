@@ -20,14 +20,14 @@ export const Card = () => {
                 <div
                     className='flex items-center justify-center gap-2'
                 >
-                    <Image priority src="/logo.png" width={40} height={40} alt="Logo" />
+                    <Image priority src="/cropped_circle_image (1).png" width={40} height={40} alt="TOMO Logo" className="rounded-full" />
                     <div className="text-2xl text-center font-semibold text-zinc-800 dark:text-neutral-100">
-                        Openlord AI Chatbot
+                        TOMO AI Chatbot
                     </div>
                 </div>
                 <div className="text-zinc-500 text-sm leading-[26.5px] flex flex-col gap-4 clear-both">
                     <p>
-                        The <Code>Openlord</Code> is an open uncensored AI chatbot
+                        <Code>TOMO</Code> is an advanced AI chatbot
                         with tool calls and multimodal capabilities. The tools are defined in the <Code>/api/chat/route.ts</Code> file
                         and the multi-modal capabilities of Language Models are powered by <Code>experimental_attachments</Code>{" "}
                         by{' '} <Link

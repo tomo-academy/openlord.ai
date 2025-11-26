@@ -143,10 +143,11 @@ const ChatMessage = ({ message }: { message: Message }) => {
         <ReactMarkdown 
           className="prose dark:prose-invert prose-strong:font-medium text-sm prose-pre:p-0 prose-pre:bg-transparent prose-code:bg-transparent"
           components={{
-            code({ node, inline, className, children, ...props }) {
+            code({ className, children, ...props }: any) {
               const match = /language-(\w+)/.exec(className || '');
               const language = match ? match[1] : '';
               const code = String(children).replace(/\n$/, '');
+              const inline = !className;
 
               return !inline && language ? (
                 <CodeBlock language={language} code={code} />

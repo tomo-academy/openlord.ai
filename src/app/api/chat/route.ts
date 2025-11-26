@@ -8,7 +8,7 @@ export const maxDuration = 30;
 export async function POST(req: Request) {
   const {
     messages,
-    model = "gpt-4o-mini",
+    model = "grok-4.1-fast",
     temperature = 0.5,
   } = await req.json();
   const { city, latitude, longitude } = geolocation(req);

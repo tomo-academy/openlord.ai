@@ -11,7 +11,7 @@ interface AppState {
 }
 
 export const useAppStore = create<AppState>()((set) => ({
-  model: "gpt-4o-mini",
+  model: "grok-4.1-fast",
   setModel: (model) => set({ model }),
 
   temperature: 0.5,

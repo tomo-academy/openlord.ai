@@ -13,6 +13,8 @@ export const metadata: Metadata = {
   description: "Advanced AI chatbot powered by multiple AI models with web search and code interpreter.",
   icons: {
     icon: "/cropped_circle_image (1).png",
+    shortcut: "/cropped_circle_image (1).png",
+    apple: "/cropped_circle_image (1).png",
   },
 };
 

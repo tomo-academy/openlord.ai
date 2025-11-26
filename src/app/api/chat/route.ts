@@ -1,9 +1,8 @@
-import { anthropic } from '@ai-sdk/anthropic'
-import { google } from '@ai-sdk/google'
-import { openai, createOpenAI } from "@ai-sdk/openai";
-import { geolocation, ipAddress } from '@vercel/functions';
+import { google } from "@ai-sdk/google";
+import { createOpenAI, openai } from "@ai-sdk/openai";
+import { geolocation, ipAddress } from "@vercel/functions";
 import { convertToCoreMessages, streamText } from "ai";
-import { z } from 'zod';
+import { z } from "zod";
 
 export const maxDuration = 30;
 
@@ -54,7 +53,7 @@ The print statement is the only way to display the output of the code. ALWAYS us
   if (model === "gpt-4o-mini") {
     selectedModel = openai(model);
   } else if (model === "gemini-1.5-flash") {
-    selectedModel = google("gemini-1.5-flash", {
+    selectedModel = google("gemini-1.5-flash-8b", {
       safetySettings: [
         {
           category: "HARM_CATEGORY_HARASSMENT",
@@ -72,7 +71,7 @@ The print statement is the only way to display the output of the code. ALWAYS us
           category: "HARM_CATEGORY_DANGEROUS_CONTENT",
           threshold: "BLOCK_NONE",
         },
-      ]
+      ],
     });
   } else if (model === "grok-4.1-fast") {
     selectedModel = openrouter("x-ai/grok-4.1-fast:free");

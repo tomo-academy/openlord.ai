@@ -1,4 +1,4 @@
 export type ModelName =
   | "gpt-4o-mini"
-  | "gemini-1.5-flash"
+  | "kimi-k2-instruct"
   | "grok-4.1-fast";

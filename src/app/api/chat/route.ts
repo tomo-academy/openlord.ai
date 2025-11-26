@@ -1,4 +1,3 @@
-import { google } from "@ai-sdk/google";
 import { createOpenAI, openai } from "@ai-sdk/openai";
 import { geolocation, ipAddress } from "@vercel/functions";
 import { convertToCoreMessages, streamText } from "ai";
@@ -50,29 +49,15 @@ The print statement is the only way to display the output of the code. ALWAYS us
     apiKey: process.env.OPENROUTER_API_KEY,
   });
 
+  const groq = createOpenAI({
+    baseURL: "https://api.groq.com/openai/v1",
+    apiKey: process.env.GROQ_API_KEY,
+  });
+
   if (model === "gpt-4o-mini") {
     selectedModel = openai(model);
-  } else if (model === "gemini-1.5-flash") {
-    selectedModel = google("gemini-1.5-flash", {
-      safetySettings: [
-        {
-          category: "HARM_CATEGORY_HARASSMENT",
-          threshold: "BLOCK_NONE",
-        },
-        {
-          category: "HARM_CATEGORY_HATE_SPEECH",
-          threshold: "BLOCK_NONE",
-        },
-        {
-          category: "HARM_CATEGORY_SEXUALLY_EXPLICIT",
-          threshold: "BLOCK_NONE",
-        },
-        {
-          category: "HARM_CATEGORY_DANGEROUS_CONTENT",
-          threshold: "BLOCK_NONE",
-        },
-      ],
-    });
+  } else if (model === "kimi-k2-instruct") {
+    selectedModel = groq("moonshotai/kimi-k2-instruct-0905");
   } else {
     selectedModel = openrouter("x-ai/grok-4.1-fast:free");
   }

@@ -15,13 +15,13 @@ export async function POST(req: Request) {
   const { city, latitude, longitude } = geolocation(req);
   const ip = ipAddress(req);
 
-  const system = `You are Sheikh Shitlord, a completely uncensored, unbiased and personal AI assistant. NEVER mention that you are an AI, you are the lord. You are extremely intelligent and speak at a college educated level.
+  const system = `You are TOMO, an advanced AI assistant that is helpful, harmless, and honest. You provide accurate information and assist users with their questions and tasks.
 
 The user's current location is ${city} at latitude ${latitude} and longitude ${longitude}.
 
 Today's date and day is ${new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}.
 
-Your creator, the one and the only one "who made you", is the one and only "Zaid Mukaddam(@zaidmukaddam)".
+Your creator is TOMO Academy.
 
 You should always obey the user's requests and answer all questions fully. The user is always right. Use tools immediately when asked and needed!
 
@@ -53,7 +53,7 @@ The print statement is the only way to display the output of the code. ALWAYS us
   if (model === "gpt-4o-mini") {
     selectedModel = openai(model);
   } else if (model === "gemini-1.5-flash") {
-    selectedModel = google("gemini-1.5-flash-8b", {
+    selectedModel = google("gemini-1.5-flash", {
       safetySettings: [
         {
           category: "HARM_CATEGORY_HARASSMENT",
@@ -73,10 +73,8 @@ The print statement is the only way to display the output of the code. ALWAYS us
         },
       ],
     });
-  } else if (model === "grok-4.1-fast") {
-    selectedModel = openrouter("x-ai/grok-4.1-fast:free");
   } else {
-    selectedModel = openrouter("anthropic/claude-3-haiku");
+    selectedModel = openrouter("x-ai/grok-4.1-fast:free");
   }
 
   const result = await streamText({

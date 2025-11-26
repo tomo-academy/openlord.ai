@@ -195,8 +195,6 @@ function getModelName(model: ModelName) {
       return "Gemini 1.5 Flash";
     case "grok-4.1-fast":
       return "Grok 4.1 Fast";
-    case "claude-3-haiku":
-      return "Claude 3 Haiku";
     default:
       return "GPT 4o mini";
   }

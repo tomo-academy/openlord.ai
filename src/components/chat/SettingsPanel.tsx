@@ -71,8 +71,7 @@ export function SettingsPanel() {
               if (
                 model === "gpt-4o-mini" ||
                 model === "gemini-1.5-flash" ||
-                model === "grok-4.1-fast" ||
-                model === "claude-3-haiku"
+                model === "grok-4.1-fast"
               ) {
                 setModel(model);
               }
@@ -98,11 +97,6 @@ export function SettingsPanel() {
               <SelectItem value="grok-4.1-fast">
                 <div className="flex items-start gap-1 text-muted-foreground">
                   Grok 4.1<span className="font-medium text-foreground">Fast (Free)</span>
-                </div>
-              </SelectItem>
-              <SelectItem value="claude-3-haiku">
-                <div className="flex items-start gap-1 text-muted-foreground">
-                  Claude 3<span className="font-medium text-foreground">Haiku</span>
                 </div>
               </SelectItem>
             </SelectContent>

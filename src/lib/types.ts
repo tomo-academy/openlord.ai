@@ -1,4 +1,4 @@
 export type ModelName =
   | "gpt-4o-mini"
-  | "gemini-2.5-flash-lite"
+  | "gemini-1.5-flash"
   | "claude-3-haiku";

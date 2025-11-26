@@ -70,7 +70,7 @@ export function SettingsPanel() {
             onValueChange={(model) => {
               if (
                 model === "gpt-4o-mini" ||
-                model === "gemini-2.5-flash-lite" ||
+                model === "gemini-1.5-flash" ||
                 model === "claude-3-haiku"
               ) {
                 setModel(model);
@@ -89,9 +89,9 @@ export function SettingsPanel() {
                   GPT4o <span className="font-medium text-foreground">mini</span>
                 </div>
               </SelectItem>
-              <SelectItem value="gemini-2.5-flash-lite">
+              <SelectItem value="gemini-1.5-flash">
                 <div className="flex items-start gap-1 text-muted-foreground">
-                  Gemini 2.5<span className="font-medium text-foreground">Flash Lite</span>
+                  Gemini 1.5<span className="font-medium text-foreground">Flash</span>
                 </div>
               </SelectItem>
               <SelectItem value="claude-3-haiku">

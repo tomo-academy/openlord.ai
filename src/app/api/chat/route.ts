@@ -1,6 +1,6 @@
 import { anthropic } from '@ai-sdk/anthropic'
 import { google } from '@ai-sdk/google'
-import { openai } from "@ai-sdk/openai";
+import { openai, createOpenAI } from "@ai-sdk/openai";
 import { geolocation, ipAddress } from '@vercel/functions';
 import { convertToCoreMessages, streamText } from "ai";
 import { z } from 'zod';
@@ -46,6 +46,11 @@ The print statement is the only way to display the output of the code. ALWAYS us
 
   let selectedModel;
 
+  const openrouter = createOpenAI({
+    baseURL: "https://openrouter.ai/api/v1",
+    apiKey: process.env.OPENROUTER_API_KEY,
+  });
+
   if (model === "gpt-4o-mini") {
     selectedModel = openai(model);
   } else if (model === "gemini-1.5-flash") {
@@ -69,8 +74,10 @@ The print statement is the only way to display the output of the code. ALWAYS us
         },
       ]
     });
+  } else if (model === "grok-4.1-fast") {
+    selectedModel = openrouter("x-ai/grok-4.1-fast:free");
   } else {
-    selectedModel = anthropic("claude-3-haiku-20240307");
+    selectedModel = openrouter("anthropic/claude-3-haiku");
   }
 
   const result = await streamText({

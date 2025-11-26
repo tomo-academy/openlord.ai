@@ -193,6 +193,8 @@ function getModelName(model: ModelName) {
       return "GPT 4o mini";
     case "gemini-1.5-flash":
       return "Gemini 1.5 Flash";
+    case "grok-4.1-fast":
+      return "Grok 4.1 Fast";
     case "claude-3-haiku":
       return "Claude 3 Haiku";
     default:

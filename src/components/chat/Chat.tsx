@@ -191,8 +191,8 @@ function getModelName(model: ModelName) {
   switch (model) {
     case "gpt-4o-mini":
       return "GPT 4o mini";
-    case "gemini-2.0-flash-exp":
-      return "Gemini 2.0 Flash";
+    case "gemini-2.5-flash-lite":
+      return "Gemini 2.5 Flash Lite";
     case "claude-3-haiku":
       return "Claude 3 Haiku";
     default:

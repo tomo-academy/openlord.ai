@@ -92,21 +92,21 @@ export function Chat() {
   const placeholder = `Message lord with ${getModelName(model)}`;
 
   return (
-    <div className="mx-auto flex w-full max-w-2xl flex-1 flex-col">
-      {messages.length === 0 && images.length === 0 && (
-        <div className="flex w-full flex-col gap-4 px-4 items-center mx-auto">
-          <Card />
+    <div className="flex w-full h-full flex-col">
+      <div className="flex-1 overflow-y-auto">
+        <div className="max-w-4xl mx-auto px-4 py-6">
+          {messages.length === 0 && images.length === 0 && (
+            <div className="flex w-full flex-col gap-4 items-center">
+              <Card />
+            </div>
+          )}
+          {messages.length > 0 && (<ChatMessages messages={messages} />)}
+          <div ref={scrollAreaRef} />
         </div>
-      )}
+      </div>
 
-
-      <ScrollArea className="flex-1">
-        {messages.length > 0 && (<ChatMessages messages={messages} />)}
-        <div ref={scrollAreaRef} />
-      </ScrollArea>
-
-
-      <div className="sticky bottom-0 bg-background max-w-xl sm:max-w-2xl w-full">
+      <div className="border-t border-border/50 bg-background">
+        <div className="max-w-4xl mx-auto px-4 py-4">
         {images.length > 0 && (
           <div className="mb-4 p-4 bg-muted rounded-lg">
             <h3 className="text-sm font-medium mb-2">Selected Images ({images.length}/{MAX_IMAGES})</h3>
@@ -135,7 +135,7 @@ export function Chat() {
         <form
           ref={formRef}
           onSubmit={handleFormSubmit}
-          className="mb-6 flex w-full flex-col gap-4 mx-auto"
+          className="flex w-full flex-col gap-4"
           onDrag={e => e.preventDefault()}
           onDrop={e => {
             e.preventDefault();
@@ -182,6 +182,7 @@ export function Chat() {
             </div>
           </div>
         </form>
+        </div>
       </div>
     </div>
   );

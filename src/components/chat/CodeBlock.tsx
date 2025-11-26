@@ -4,7 +4,10 @@ import { Check, Copy } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { vscDarkPlus, vs } from "react-syntax-highlighter/dist/esm/styles/prism";
+import {
+  vs,
+  vscDarkPlus,
+} from "react-syntax-highlighter/dist/esm/styles/prism";
 
 interface CodeBlockProps {
   language: string;

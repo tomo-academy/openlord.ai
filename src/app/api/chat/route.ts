@@ -49,7 +49,7 @@ The print statement is the only way to display the output of the code. ALWAYS us
   if (model === "gpt-4o-mini") {
     selectedModel = openai(model);
   } else if (model === "gemini-2.0-flash-exp") {
-    selectedModel = google("models/gemini-2.0-flash-exp", {
+    selectedModel = google("gemini-1.5-flash", {
       safetySettings: [
         {
           category: "HARM_CATEGORY_HARASSMENT",

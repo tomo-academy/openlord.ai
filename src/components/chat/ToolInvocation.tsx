@@ -200,12 +200,21 @@ const ArgumentDisplay: React.FC<{ toolName: string; args: any }> = ({ toolName, 
             <Card className="w-full overflow-hidden">
                 <CardContent className="p-0">
                     <div className="bg-muted p-2 flex items-center justify-between border-b border-border">
-                        <div className="flex items-center">
-                            <Code2 className="h-4 w-4 mr-2 flex-shrink-0" />
+                        <div className="flex items-center gap-2">
+                            <Code2 className="h-4 w-4 flex-shrink-0" />
                             <span className="text-sm font-medium truncate">
                                 {args?.title || 'Calculate Difference Between Two Dates'}
                             </span>
+                            <span className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded">Python</span>
                         </div>
+                        <button
+                            onClick={() => {
+                                navigator.clipboard.writeText(args.code.replace(/^\s+|\s+$/g, '').replace(/\\n/g, '\n').trim());
+                            }}
+                            className="text-xs hover:bg-background px-2 py-1 rounded transition-colors"
+                        >
+                            Copy
+                        </button>
                     </div>
                     <div className="bg-background">
                         <div className="overflow-x-auto rounded-xl">

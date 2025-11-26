@@ -6,6 +6,7 @@ import ReactMarkdown from "react-markdown";
 
 import { cn } from "@/lib/utils";
 
+import { CodeBlock } from './CodeBlock';
 import ToolInvocation from './ToolInvocation';
 
 interface CardRotateProps {
@@ -139,7 +140,26 @@ const ChatMessage = ({ message }: { message: Message }) => {
 
     return (
       <>
-        <ReactMarkdown className="prose dark:prose-invert prose-strong:font-medium text-sm">{message.content}</ReactMarkdown>
+        <ReactMarkdown 
+          className="prose dark:prose-invert prose-strong:font-medium text-sm prose-pre:p-0 prose-pre:bg-transparent prose-code:bg-transparent"
+          components={{
+            code({ node, inline, className, children, ...props }) {
+              const match = /language-(\w+)/.exec(className || '');
+              const language = match ? match[1] : '';
+              const code = String(children).replace(/\n$/, '');
+
+              return !inline && language ? (
+                <CodeBlock language={language} code={code} />
+              ) : (
+                <code className="bg-muted px-1.5 py-0.5 rounded text-sm" {...props}>
+                  {children}
+                </code>
+              );
+            }
+          }}
+        >
+          {message.content}
+        </ReactMarkdown>
         {message.toolInvocations?.map((toolInvocation, index) => (
           <ToolInvocation key={`${toolInvocation.toolCallId}-${index}`} toolInvocation={toolInvocation} />
         ))}
